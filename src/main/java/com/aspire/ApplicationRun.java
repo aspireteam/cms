@@ -12,7 +12,7 @@ public class ApplicationRun {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationRun.class, args);
-		logger.info("系统加载完毕");
+		//logger.info("系统加载完毕");
 		System.out.println("-----------------OK------------------");
 	}
 }
