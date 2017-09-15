@@ -1,0 +1,32 @@
+body {
+	background: #66B3FF;
+}
+
+.login_title {
+	background: #FFFFFF;
+	min-height: 250px;
+	max-height: 500px;
+	z border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: 1px solid #FFFFFF;
+	margin-top: 20px;
+}
+
+.login_title img {
+	padding-top: 20px;
+	margin: 0 auto;
+}
+
+.regist_contain .form-group {;
+	margin: 5px;
+}
+
+.login_contain {
+	background: #FFFFFF;
+	padding: 0;
+	min-height: 100px;
+	max-height: 500px;
+	border: 1px solid #FFFFFF;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}

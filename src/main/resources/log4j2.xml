@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF" monitorInterval="30">
+	<properties>
+		<property name="layout.conversionPattern">[%d{yyyy-MM-dd HH:mm:ss.SSS} %5p] %m%n</property>
+	</properties>
+
+	<appenders>
+		<!-- 控制台仅打印级别为ERROR的日志 -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<ThresholdFilter level="debug" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<PatternLayout pattern="${layout.conversionPattern}" />
+		</Console>
+
+		<RollingFile name="RollingFile" filename="/tmp/ip.log" 
+							filepattern="/tmp/%d{yyyy-MM-dd_HH:mm:ss}-ip.log">
+			<PatternLayout pattern="${layout.conversionPattern}" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="500 MB" />
+			</Policies>
+		</RollingFile>
+	</appenders>
+
+	<loggers>
+		<root level="error">
+			<appender-ref ref="Console" />
+		</root>
+
+		<logger name="com.aspirecn.exer.webfw" level="debug" additivity="false">
+			<appender-ref ref="Console" />
+		</logger>
+	</loggers>
+	
+</configuration>
