@@ -13,7 +13,7 @@ public interface LevelTwoDao {
 	public List<LevelTwo> findAll();
 	
 	/**
-	 * 根据一级标题ID查询全部二级标题
+	 * 根据一级查询全部二级标题
 	 * @param titleOneId 一级标题ID
 	 * @return 二级标题内容
 	 */
@@ -34,15 +34,15 @@ public interface LevelTwoDao {
 	public Integer addLevelTwoTitle(LevelTwo levelTwo);
 	
 	/**
-	 * 根据titleTwoId来更新二级标题
+	 * 根据二级标题来更新二级标题
 	 * @param titleTwoId 二级标题ID
-	 * @param levelOne 要更新的内容
+	 * @param levelTwo 要更新的内容
 	 * @return 对数据的影响行数
 	 */
-	public Integer updateLevelTwoTitleById(Integer titleTwoId,LevelTwo levelOne);
+	public Integer updateTitleByLevelTwoId(Integer titleTwoId,LevelTwo levelTwo);
 	
 	/**
-	 * 根据titleTwoId移出二级标题
+	 * 根据二级标题ID删除二级标题
 	 * @param titleTwoId 二级标题ID
 	 * @return 对数据的影响行数
 	 */

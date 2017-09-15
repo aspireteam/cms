@@ -7,7 +7,7 @@ import java.util.Date;
  * @author 丁丁
  *
  */
-public class LevelThreeId implements Serializable{
+public class LevelThree implements Serializable{
 	private static final long serialVersionUID = 2554187927076635676L;
 	// 三级菜单ID
 	private Integer titleThreeId;
@@ -20,9 +20,9 @@ public class LevelThreeId implements Serializable{
 	// 最后修改时间
 	private Date lastModifyTime;
 	
-	public LevelThreeId() {}
+	public LevelThree() {}
 
-	public LevelThreeId(Integer titleThreeId, Integer titleTwoId, String titleName, Date createTime,
+	public LevelThree(Integer titleThreeId, Integer titleTwoId, String titleName, Date createTime,
 			Date lastModifyTime) {
 		super();
 		this.titleThreeId = titleThreeId;
