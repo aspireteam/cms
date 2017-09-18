@@ -127,18 +127,19 @@ public class UserController {
 	}
 	
 	// —————————————————— 用户异常处理 ——————————————————
-	// 用户未查找到异常
-	@ApiIgnore
-	@ExceptionHandler(UsernameNotFindException.class)
-	public JsonResult UsernameNotFindExceptionHandler(UsernameNotFindException e) {
-		return new JsonResult(3, e);
-	}
 
 	// 用户异常
 	@ApiIgnore
 	@ExceptionHandler(UsernameException.class)
 	public JsonResult UsernameExceptionHandler(UsernameException e) {
 		return new JsonResult(2, e);
+	}
+
+	// 用户未查找到异常
+	@ApiIgnore
+	@ExceptionHandler(UsernameNotFindException.class)
+	public JsonResult UsernameNotFindExceptionHandler(UsernameNotFindException e) {
+		return new JsonResult(3, e);
 	}
 
 	// 密码异常

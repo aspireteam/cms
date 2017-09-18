@@ -28,6 +28,11 @@ public class JsonResult implements Serializable{
 		this.data = data;
 	}
 	
+	public JsonResult(int state,String message){
+		state = SUCCESS;
+		this.message = message;
+	}
+	
 	public JsonResult(Throwable e) {
 		state = ERROR;
 		message = e.getMessage();

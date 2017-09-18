@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aspire.dao.ContentDao">
+	<!-- 查询全部主体内容列表 -->
+ 	<select id="findAll" resultType="com.aspire.entity.Content">
+		select * from content
+	</select> 
+	
+	<!-- 根据内容模糊查询全部符合的主体内容 -->
+	<select id="findBodyBySearch" parameterType="String" 
+		resultType="com.aspire.entity.Content">
+		select * from content 
+		where body like CONCAT('%', #{body}, '%')
+	</select>
+
+	<!-- 根据三级标题ID查询全部主体内容 -->
+	<select id="findBodyByLevelThreeId" parameterType="Integer" 
+		resultType="com.aspire.entity.Content">
+		select * from content 
+		where titleThreeId=#{titleThreeId}
+	</select>
+	
+	<!-- 根据主体内容Id查询主体内容 -->
+	<select id="findBodyByContentId" parameterType="Integer" 
+		resultType="com.aspire.entity.Content">
+		select * from content 
+		where contentId=#{contentId}
+	</select>
+
+	<!-- 增加主体内容 -->
+	<insert id="addBody" parameterType="com.aspire.entity.Content" >
+		insert into 
+		content(titleThreeId,body,createTime,lastModifyTime) 
+		values(#{titleThreeId},#{body},#{createTime},#{lastModifyTime})
+	</insert>
+	
+	<!-- 更新主体内容 -->
+	<update id="updateBody" parameterType="com.aspire.entity.Content" >
+		update content  
+		set body=#{body},lastModifyTime=#{lastModifyTime}
+		where contentId=#{contentId}
+	</update>
+	
+	<!-- 删除主体内容 -->
+	<delete id="removeBody" parameterType="Integer">
+		delete from content where contentId=#{contentId}
+	</delete>
+</mapper>

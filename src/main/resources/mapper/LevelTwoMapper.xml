@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aspire.dao.LevelTwoDao">
+	<!-- 查询全部二级列表 -->
+ 	<select id="findAll" resultType="com.aspire.entity.LevelTwo">
+		select * from level_two 
+	</select> 
+	
+	<!-- 根据一级列表ID查询二级列表 -->
+	<select id="findTitleByLevelOneId" parameterType="Integer" 
+		resultType="com.aspire.entity.LevelTwo">
+		select * from level_two 
+		where titleOneId=#{titleOneId}
+	</select>
+
+	<!-- 根据二级列表ID查询二级列表 -->
+	<select id="findTitleByLevelTwoId" parameterType="Integer" 
+		resultType="com.aspire.entity.LevelTwo">
+		select * from level_two 
+		where titleTwoId=#{titleTwoId}
+	</select>
+
+	<!-- 增加二级列表 -->
+	<insert id="addLevelTwoTitle" parameterType="com.aspire.entity.LevelTwo" >
+		insert into 
+		level_two(titleOneId,titleName,createTime,lastModifyTime) 
+		values(#{titleOneId},#{titleName},#{createTime},#{lastModifyTime})
+	</insert>
+	
+	<!-- 更新二级列表 -->
+	<update id="updateTitle" parameterType="com.aspire.entity.LevelTwo" >
+		update level_two 
+		set titleName=#{titleName},lastModifyTime=#{lastModifyTime} 
+		where titleTwoId=#{titleTwoId}
+	</update>
+	
+	
+	<!-- 删除二级列表 -->
+	<delete id="removeLevelTwoTitle" parameterType="Integer">
+		delete from level_two where titleTwoId=#{titleTwoId}
+	</delete>
+</mapper>

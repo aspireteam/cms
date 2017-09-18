@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aspire.dao.LevelThreeDao">
+	<!-- 查询全部三级列表 -->
+ 	<select id="findAll" resultType="com.aspire.entity.LevelThree">
+		select * from level_three
+	</select> 
+	
+	<!-- 根据二级列表ID查询三级列表 -->
+	<select id="findTitleByLevelTwoId" parameterType="Integer" 
+		resultType="com.aspire.entity.LevelThree">
+		select * from level_three 
+		where titleTwoId=#{titleTwoId}
+	</select>
+
+	<!-- 根据三级列表ID查询三级列表 -->
+	<select id="findTitleByLevelThreeId" parameterType="Integer" 
+		resultType="com.aspire.entity.LevelThree">
+		select * from level_three 
+		where titleThreeId=#{titleThreeId}
+	</select>
+
+	<!-- 增加三级列表 -->
+	<insert id="addLevelThreeTitle" parameterType="com.aspire.entity.LevelThree" >
+		insert into 
+		level_three(titleTwoId,titleName,createTime,lastModifyTime) 
+		values(#{titleTwoId},#{titleName},#{createTime},#{lastModifyTime})
+	</insert>
+	
+	<!-- 更新三级列表 -->
+	<update id="updateTitle" parameterType="com.aspire.entity.LevelThree" >
+		update level_three 
+		set titleName=#{titleName},lastModifyTime=#{lastModifyTime}
+		where titleThreeId=#{titleThreeId}
+	</update>
+	
+	<!-- 删除三级列表 -->
+	<delete id="removeLevelThreeTitle" parameterType="Integer">
+		delete from level_three where titleThreeId=#{titleThreeId}
+	</delete>
+</mapper>
