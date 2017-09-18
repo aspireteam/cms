@@ -13,7 +13,7 @@ public interface LevelOneDao {
 	public List<LevelOne> findAll();
 	
 	/**
-	 * 根据一级标题ID查询一级标题
+	 * 根据ID查询一级标题
 	 * @param titleOneId 一级标题ID
 	 * @return 一级标题内容
 	 */
@@ -27,15 +27,15 @@ public interface LevelOneDao {
 	public Integer addLevelOneTitle(LevelOne levelOne);
 	
 	/**
-	 * 根据一级标题ID来更新一级标题
+	 * 根据ID来更新一级标题
 	 * @param titleOneId 一级标题ID
 	 * @param levelOne 要更新的内容
 	 * @return 对数据的影响行数
 	 */
-	public Integer updateTitleByLevelOneId(Integer titleOneId,LevelOne levelOne);
+	public Integer updateLevelOneTitleById(Integer titleOneId,LevelOne levelOne);
 	
 	/**
-	 * 根据一级标题ID删除一级标题
+	 * 根据titleOneId移出一级标题
 	 * @param titleOneId 一级标题ID
 	 * @return 对数据的影响行数
 	 */
